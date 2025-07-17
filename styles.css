@@ -3317,6 +3317,10 @@ section {
 .project-content {
     padding: 25px 20px;
     position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-title {
@@ -3339,6 +3343,8 @@ section {
     word-break: keep-all;
     overflow-wrap: break-word;
     white-space: normal;
+    flex-grow: 1;
+    margin-top: 12px;
 }
 
 .project-button {
