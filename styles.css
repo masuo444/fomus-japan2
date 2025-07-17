@@ -3336,6 +3336,9 @@ section {
     font-family: 'Noto Serif JP', serif;
     font-weight: 300;
     opacity: 0.85;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .project-button {
@@ -3433,6 +3436,9 @@ section {
         line-height: 1.4;
         word-break: keep-all;
         overflow-wrap: break-word;
+        white-space: normal;
+        max-height: none;
+        overflow: visible;
     }
     
     .reveal-project {
