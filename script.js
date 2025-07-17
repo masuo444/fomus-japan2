@@ -52,9 +52,9 @@ function switchLanguage(lang) {
     const elementsWithLang = document.querySelectorAll('[data-ja][data-en]');
     elementsWithLang.forEach(element => {
         if (lang === 'ja') {
-            element.textContent = element.dataset.ja;
+            element.innerHTML = element.dataset.ja;
         } else {
-            element.textContent = element.dataset.en;
+            element.innerHTML = element.dataset.en;
         }
     });
     
