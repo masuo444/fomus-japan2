@@ -3226,6 +3226,7 @@ section {
     display: block;
     text-decoration: none;
     color: inherit;
+    animation: excitingPulse 3s ease-in-out infinite;
 }
 
 .project-card::before {
@@ -3248,6 +3249,7 @@ section {
 .project-card:hover {
     transform: translateY(-20px) scale(1.02);
     box-shadow: 0 40px 120px var(--color-shadow-luxury);
+    animation: none;
 }
 
 .project-image {
@@ -3280,6 +3282,25 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.project-overlay::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--color-ivory);
+    border-radius: 50%;
+    border-top: 3px solid transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .project-card:hover .project-overlay {
