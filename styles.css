@@ -48,6 +48,7 @@ body {
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
     padding: 0 40px;
 }
 
@@ -1435,6 +1436,125 @@ section {
         padding: 15px 30px;
         font-size: 1rem;
     }
+    
+    /* タブレット向け軌跡ページ追加最適化 */
+    .timeline-events {
+        padding: 0 30px;
+    }
+    
+    .timeline-event {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .event-image img {
+        border-radius: 12px;
+    }
+}
+
+/* 480px以下のさらなる軌跡ページ最適化 */
+@media (max-width: 480px) {
+    .trajectory-hero-content {
+        padding: 30px 15px;
+        text-align: center;
+    }
+    
+    .trajectory-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .trajectory-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .trajectory-intro p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .year-navigation {
+        padding: 25px 0;
+    }
+    
+    .year-nav-buttons {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .year-nav-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        min-width: 60px;
+    }
+    
+    .year-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .year-title {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+    
+    .year-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-events {
+        padding: 0 15px;
+        gap: 30px;
+    }
+    
+    .timeline-event {
+        padding: 20px 12px;
+        border-radius: 15px;
+    }
+    
+    .event-date {
+        font-size: 0.8rem;
+        padding: 12px 18px;
+        min-height: 45px;
+        border-radius: 22px;
+    }
+    
+    .event-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .event-content p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+    
+    .event-image {
+        height: 200px;
+        max-width: 320px;
+    }
+    
+    .event-image img {
+        border-radius: 10px;
+    }
+    
+    .back-section {
+        padding: 30px 0;
+        text-align: center;
+    }
+    
+    .back-button {
+        padding: 14px 25px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: inline-block;
+    }
 }
 
 /* レスポンシブデザイン */
@@ -1853,6 +1973,47 @@ section {
     }
 }
 
+/* タブレット専用の最適化 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .hero-content {
+        padding: 100px 30px 80px;
+        gap: 50px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .concept-content {
+        gap: 40px;
+    }
+    
+    .about-content {
+        gap: 40px;
+    }
+    
+    .about-image {
+        max-width: 300px;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -1863,16 +2024,31 @@ section {
     }
 
     .hero-content {
-        padding: 0 15px;
+        padding: 100px 15px 50px;
+        gap: 30px;
     }
 
     .hero-title {
         font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero-tagline {
+        font-size: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .hero-logo img {
+        max-width: 180px;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
 
     .service-card h3 {
@@ -1880,25 +2056,126 @@ section {
     }
 
     .contact-button {
-        padding: 15px 30px;
-        font-size: 0.9rem;
+        padding: 16px 25px;
+        font-size: 0.95rem;
     }
 
     /* プロジェクトセクション - 小画面対応 */
+    .projects {
+        padding: 50px 0;
+    }
+    
     .projects-grid {
         gap: 20px;
+        padding: 0 15px;
     }
 
     .project-content {
-        padding: 15px 12px;
+        padding: 18px 15px;
     }
 
     .project-title {
         font-size: 1.1rem;
+        margin-bottom: 10px;
     }
 
     .project-description {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .project-image {
+        height: 160px;
+    }
+    
+    /* セクション間の余白調整 */
+    .concept, .projects, .about, .contact {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* コンセプトセクション小画面対応 */
+    .concept-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+    
+    .concept-image {
+        max-width: 280px;
+    }
+    
+    /* 代表セクション小画面対応 */
+    .about-image {
+        max-width: 220px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-role {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-greeting p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+    
+    .about-button {
+        max-width: 260px;
+        padding: 14px 18px;
+        font-size: 0.85rem;
+    }
+    
+    /* 軌跡セクション小画面対応 */
+    .trajectory-content {
+        padding: 30px 15px;
+    }
+    
+    .trajectory-intro p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .trajectory-button {
+        padding: 14px 25px;
+        font-size: 0.95rem;
+        max-width: 250px;
+    }
+    
+    /* モーダル小画面対応 */
+    .modal-content {
+        width: 95%;
+        max-width: 350px;
+        padding: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .company-label {
+        font-size: 0.85rem;
+    }
+    
+    .company-value {
+        font-size: 0.95rem;
     }
 }
 
@@ -1939,9 +2216,205 @@ section {
         overflow-wrap: break-word;
         hyphens: auto;
     }
+    
+    /* ヒーロセクション最適化 */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 20px 60px;
+        gap: 40px;
+    }
+    
+    .hero-left {
+        order: 1;
+    }
+    
+    .hero-right {
+        order: 2;
+    }
+    
+    .hero-logo img {
+        max-width: 200px;
+        height: auto;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+    
+    .hero-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+    
+    .hero-switcher {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .hero-switcher-text {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    .hero-switcher-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    
+    /* コンセプトセクション最適化 */
+    .concept-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .concept-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+    
+    .concept-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* プロジェクトセクション最適化 */
+    .projects {
+        padding: 60px 0;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
+    
+    .project-content {
+        padding: 20px 15px;
+    }
+    
+    .project-title {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+    
+    .project-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* 代表セクション最適化 */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .about-image {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .about-text h3 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .about-role {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .about-greeting p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    
+    .about-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px 20px;
+        font-size: 0.9rem;
+        text-align: center;
+        display: block;
+    }
+    
+    /* コンタクトセクション最適化 */
+    .contact-content {
+        padding: 40px 20px;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .contact-button {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 25px;
+        font-size: 1rem;
+        justify-content: center;
+    }
+    
+    /* モーダル最適化 */
+    .modal-content {
+        width: 90%;
+        max-width: 400px;
+        margin: 10% auto;
+        padding: 25px;
+    }
+    
+    .company-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .company-label {
+        font-size: 0.9rem;
+    }
+    
+    .company-value {
+        font-size: 1rem;
+    }
+    
+    /* 軌跡セクション最適化 */
+    .trajectory-content {
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .trajectory-intro p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    
+    .trajectory-button {
+        padding: 16px 30px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
 }
 
-/* 高級感のあるアニメーション */
+/* パンくずリスト */\n.breadcrumb {\n    background: rgba(255, 248, 231, 0.8);\n    padding: 15px 0;\n    border-bottom: 1px solid rgba(212, 175, 55, 0.2);\n    font-size: 0.9rem;\n}\n\n.breadcrumb-list {\n    list-style: none;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    margin: 0;\n    padding: 0;\n}\n\n.breadcrumb-item {\n    display: flex;\n    align-items: center;\n}\n\n.breadcrumb-link {\n    color: var(--color-charcoal);\n    text-decoration: none;\n    transition: color 0.3s ease;\n    font-weight: 400;\n}\n\n.breadcrumb-link:hover {\n    color: var(--color-gold);\n    text-decoration: underline;\n}\n\n.breadcrumb-current {\n    color: var(--color-gold);\n    font-weight: 500;\n}\n\n.breadcrumb-separator {\n    color: var(--color-charcoal);\n    opacity: 0.6;\n    margin: 0 4px;\n}\n\n@media (max-width: 768px) {\n    .breadcrumb {\n        padding: 10px 0;\n        font-size: 0.85rem;\n    }\n    \n    .breadcrumb-list {\n        gap: 6px;\n    }\n}\n\n/* SEO強化のための見出し構造 */\n.seo-keywords {\n    position: absolute;\n    left: -9999px;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n/* 高級感のあるアニメーション */
 @keyframes sparkle {
     0%, 100% { opacity: 0; transform: scale(0); }
     50% { opacity: 1; transform: scale(1); }

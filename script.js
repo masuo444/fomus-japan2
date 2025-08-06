@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
+        
+        // モバイルでメニューが開いている時のスクロール防止
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // ナビゲーションリンクをクリックしたらメニューを閉じる
@@ -14,11 +21,30 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
+            document.body.style.overflow = '';
         });
     });
     
+    // 外側をクリックしたらメニューを閉じる
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // タッチ操作の最適化
+    initTouchOptimization();
+    
     // 言語切り替え機能
     initLanguageSwitcher();
+    
+    // 画像の遅延読み込み
+    initLazyLoading();
+    
+    // スムーズスクロールの最適化
+    initSmoothScroll();
 });
 
 // 言語切り替え機能
@@ -269,6 +295,159 @@ function typeWriter(element, text, speed = 100) {
     
     type();
 }
+
+// モバイル専用最適化関数
+function initTouchOptimization() {
+    // タッチイベントの最適化
+    const touchElements = document.querySelectorAll('.project-card, .contact-button, .trajectory-button');
+    
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        }, { passive: true });
+    });
+    
+    // スワイプ検出（プロジェクトカード用）
+    let startX, startY, currentX, currentY;
+    
+    document.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', function(e) {
+        if (!startX || !startY) return;
+        
+        currentX = e.changedTouches[0].clientX;
+        currentY = e.changedTouches[0].clientY;
+        
+        const diffX = startX - currentX;
+        const diffY = startY - currentY;
+        
+        // 水平スワイプの検出（将来的なカルーセル機能用）
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+                // 左スワイプ
+                console.log('左スワイプ検出');
+            } else {
+                // 右スワイプ
+                console.log('右スワイプ検出');
+            }
+        }
+        
+        startX = null;
+        startY = null;
+    }, { passive: true });
+}
+
+function initLazyLoading() {
+    // 画像の遅延読み込み最適化
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+
+        const lazyImages = document.querySelectorAll('img[data-src], img[loading="lazy"]');
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+}
+
+function initSmoothScroll() {
+    // スムーススクロールのモバイル最適化
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+                const offset = window.innerWidth <= 768 ? 20 : 0; // モバイルでは追加オフセット
+                const targetPosition = target.offsetTop - headerHeight - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ビューポートの最適化
+function optimizeViewport() {
+    // 動的ビューポート高さの設定（モバイルブラウザ対応）
+    const setVh = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVh();
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(setVh, 100);
+    });
+}
+
+// パフォーマンスの最適化
+function initPerformanceOptimization() {
+    // 画像の圧縮チェック
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            // 画像が読み込まれた後の処理
+            this.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', function() {
+            // エラー時のフォールバック
+            console.warn('画像の読み込みに失敗:', this.src);
+        });
+    });
+    
+    // レスポンシブ画像の最適化
+    if (window.devicePixelRatio > 1) {
+        const highDpiImages = document.querySelectorAll('img[data-src-2x]');
+        highDpiImages.forEach(img => {
+            if (img.dataset.src2x) {
+                img.src = img.dataset.src2x;
+            }
+        });
+    }
+}
+
+// フォントの最適化
+function optimizeFonts() {
+    // Webフォントの読み込み最適化
+    if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+        });
+    }
+}
+
+// 初期化関数
+document.addEventListener('DOMContentLoaded', function() {
+    optimizeViewport();
+    initPerformanceOptimization();
+    optimizeFonts();
+});
 
 // アクセシビリティの向上
 document.addEventListener('keydown', function(e) {

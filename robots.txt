@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# サイトマップの場所を指定
+Sitemap: https://fomus.jp/sitemap.xml
+
+# 重要なページの優先クロール
+Crawl-delay: 1
+
+# 検索エンジンに優先的にクロールしてもらいたいページ
+Allow: /index.html
+Allow: /trajectory.html
+
+# 不要なファイルのクロールを制限
+Disallow: /trajectory　写真/
+Disallow: /*.JPG$
+Disallow: /*.PNG$
+Disallow: /*.jpg$
+Disallow: /*.png$
+Disallow: /img/*.jpg
+Disallow: /img/*.png
+
+# Google Search Console用
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing用
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yahoo用
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1

@@ -1,0 +1,53 @@
+# FOMUS SEO最適化 .htaccess
+# パフォーマンス向上とSEO対策
+
+# Gzip圧縮の有効化
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ブラウザキャッシュの設定
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+# セキュリティヘッダー
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+</IfModule>
+
+# URLの正規化（www無しに統一）
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.fomus\.jp [NC]
+RewriteRule ^(.*)$ https://fomus.jp/$1 [R=301,L]
+
+# HTTPからHTTPSへのリダイレクト
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://fomus.jp/$1 [R=301,L]
+
+# 日本語URL対応
+RewriteRule ^軌跡/?$ trajectory.html [L]
+RewriteRule ^ホーム/?$ index.html [L]
+
+# 404エラー時にindex.htmlへリダイレクト
+ErrorDocument 404 /index.html
+
+# ファイルタイプ別のMIMEタイプ設定
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/svg+xml .svg
+</IfModule>

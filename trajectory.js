@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navCircles = document.querySelectorAll('.nav-circle');
     const yearSections = document.querySelectorAll('.timeline-year-section');
     
+    // モバイル対応の初期化
+    initMobileTrajectoryOptimization();
+    
     // 年度ナビゲーションボタンのイベントリスナー
     yearNavBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -194,6 +197,133 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', debouncedResize);
     
     function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+});
+
+// モバイル専用軌跡ページ最適化
+function initMobileTrajectoryOptimization() {
+    // フローティングナビゲーションのモバイル対応
+    if (window.innerWidth <= 768) {
+        const floatingNav = document.querySelector('.floating-navigation');
+        if (floatingNav) {
+            floatingNav.style.display = 'none';
+        }
+    }
+    
+    // 年表イベントのタッチ最適化
+    const timelineEvents = document.querySelectorAll('.timeline-event');
+    timelineEvents.forEach((event, index) => {
+        // タッチフィードバック
+        event.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.2s ease';
+        }, { passive: true });
+        
+        event.addEventListener('touchend', function() {
+            this.style.transform = '';
+        }, { passive: true });
+        
+        // 遅延アニメーション（パフォーマンス向上）
+        event.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // 画像の最適化（軌跡ページ専用）
+    const trajectoryImages = document.querySelectorAll('.event-image img');
+    trajectoryImages.forEach(img => {
+        // 画像読み込み最適化
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        
+        // エラーハンドリング
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            console.warn('軌跡画像の読み込みに失敗:', this.src);
+        });
+    });
+    
+    // 年度ナビゲーションのスクロール対応
+    const yearNavigation = document.querySelector('.year-navigation');
+    if (yearNavigation && window.innerWidth <= 768) {
+        let isScrolling = false;
+        
+        yearNavigation.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                window.requestAnimationFrame(function() {
+                    // スクロール中の処理（必要に応じて）
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        }, { passive: true });
+    }
+    
+    // 動的高さ調整（モバイルブラウザ対応）
+    function adjustMobileHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    adjustMobileHeight();
+    window.addEventListener('resize', adjustMobileHeight);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(adjustMobileHeight, 100);
+    });
+}
+
+// スクロールパフォーマンスの最適化
+let ticking = false;
+
+function updateOnScroll() {
+    const scrollTop = window.pageYOffset;
+    const sections = document.querySelectorAll('.timeline-year-section');
+    
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+            const year = section.id.replace('year-', '');
+            updateActiveYear(year);
+        }
+    });
+    
+    ticking = false;
+}
+
+function requestScrollUpdate() {
+    if (!ticking) {
+        requestAnimationFrame(updateOnScroll);
+        ticking = true;
+    }
+}
+
+function updateActiveYear(year) {
+    // 年度ナビゲーションの更新
+    const yearBtns = document.querySelectorAll('.year-nav-btn');
+    const navCircles = document.querySelectorAll('.nav-circle');
+    
+    yearBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.year === year);
+    });
+    
+    navCircles.forEach(circle => {
+        circle.classList.toggle('active', circle.dataset.year === year);
+    });
+}
+
+// スクロール監視（パフォーマンス重視）
+window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
             const later = () => {

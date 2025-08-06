@@ -2,28 +2,218 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
-    <title>FOMUS（フォーマス）| 枡で人と人がつながり、自己表現する</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="keywords" content="枡, 伝統工芸, 木製品, ヒノキ, 日本酒, 升, 一合, 日本文化, ハンドメイド, オーダーメイド, プレゼント, 贈り物, ジュエリー, アクセサリー, アート, 写真集, カードゲーム, FOMUS, フォーマス, 日本ブランド, 文化IP, エンターテイメント, 伝統工芸品, 和雑貨, インテリア雑貨">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- SEOメタタグ -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="theme-color" content="#d4af37">
+    <meta name="msapplication-TileColor" content="#d4af37">
+    <link rel="canonical" href="https://fomus.jp">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>枡 伝統工芸 | FOMUS（フォーマス）公式サイト - 日本の木製品ブランド</title>
     <meta name="description" content="FOMUSは日本の伝統工芸「枡」を通じて人と人をつなぎ、アートと文化を表現するブランドです。">
     
     <!-- OGP設定 -->
-    <meta property="og:title" content="FOMUS（フォーマス）| 枡で人と人がつながり、自己表現する">
+    <meta property="og:title" content="枡 伝統工芸 | FOMUS - 日本の木製品ブランド">
     <meta property="og:description" content="FOMUSは日本の伝統工芸「枡」を通じて人と人をつなぎ、アートと文化を表現するブランドです。伝統であそび、世界をつなぐ。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fomus.jp">
-    <meta property="og:image" content="https://fomus.jp/logo.png">
+    <meta property="og:image" content="https://fomus.jp/FOMUS.png">
+    <meta property="og:image:alt" content="FOMUS（フォーマス）- 日本の伝統工芸「枡」を通じて人と人をつなぐブランド">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="FOMUS">
     <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FOMUS（フォーマス）| 枡で人と人がつながり、自己表現する">
-    <meta name="twitter:description" content="FOMUSは日本の伝統工芸「枡」を通じて人と人をつなぎ、アートと文化を表現するブランドです。">
-    <meta name="twitter:image" content="https://fomus.jp/logo.png">
+    <meta name="twitter:site" content="@fomus_official">
+    <meta name="twitter:creator" content="@masumasumasuo7">
+    <meta name="twitter:title" content="枡 伝統工芸 | FOMUS - 日本の木製品ブランド">
+    <meta name="twitter:description" content="FOMUSは日本の伝統工芸「枡」を通じて人と人をつなぎ、アートと文化を表現するブランドです。伝統であそび、世界をつなぐ。">
+    <meta name="twitter:image" content="https://fomus.jp/FOMUS.png">
+    <meta name="twitter:image:alt" content="FOMUS（フォーマス）- 日本の伝統工芸「枡」を通じて人と人をつなぐブランド">
+    
+    <!-- Facebook App ID（必要に応じて追加）-->
+    <!-- <meta property="fb:app_id" content="YOUR_APP_ID"> -->
+    
+    <!-- 追加のOGP設定 -->
+    <meta property="og:updated_time" content="2025-01-01T00:00:00+09:00">
+    <meta property="article:author" content="https://www.instagram.com/masumasumasuo7/">
+    <meta property="article:publisher" content="https://instagram.com/fomus_official">
+    <!-- DNS prefetch and preconnect for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- 重要なリソースのプリロード -->
+    <link rel="preload" href="FOMUS.png" as="image" type="image/png">
+    <link rel="preload" href="logo.png" as="image" type="image/png">
+    <link rel="preload" href="styles.css" as="style">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- 構造化データ (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FOMUS（フォーマス）",
+        "alternateName": "FOMUS",
+        "url": "https://fomus.jp",
+        "logo": "https://fomus.jp/FOMUS.png",
+        "image": "https://fomus.jp/FOMUS.png",
+        "description": "FOMUSは日本の伝統工芸「枡」を通じて人と人をつなぎ、アートと文化を表現するブランドです。伝統であそび、世界をつなぐ。",
+        "founder": {
+            "@type": "Person",
+            "name": "増尾圭亮",
+            "alternateName": "まっすー / MaSU",
+            "jobTitle": "FOMUS代表／フォトグラファー・AI活用アドバイザー",
+            "sameAs": [
+                "https://www.instagram.com/masumasumasuo7/",
+                "https://instagram.com/fomus_official"
+            ]
+        },
+        "foundingDate": "2021-02-01",
+        "legalName": "合同会社FOMUS",
+        "foundingLocation": {
+            "@type": "Place",
+            "addressCountry": "JP"
+        },
+        "sameAs": [
+            "https://instagram.com/fomus_official",
+            "https://www.instagram.com/masumasumasuo7/"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@fomus.jp",
+            "contactType": "customer service",
+            "availableLanguage": ["ja", "en"]
+        },
+        "brand": {
+            "@type": "Brand",
+            "name": "FOMUS",
+            "description": "日本の伝統工芸「枡」を基盤としたエンターテイメントブランド"
+        },
+        "makesOffer": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Product",
+                    "name": "FOMUSの枡",
+                    "description": "国産ヒノキを使った最高品質の枡"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "CreativeWork",
+                    "name": "枡フォト写真集",
+                    "description": "世界中で枡を持って撮るアートプロジェクト"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Product",
+                    "name": "FOMUS PARURE",
+                    "description": "世界最小サイズの枡を活用したジュエリーブランド"
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- 日本市場向けローカルSEO構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "FOMUS（フォーマス）",
+        "description": "日本の伝統工芸「枡」を現代に蘇らせた文化ブランド",
+        "url": "https://fomus.jp",
+        "image": "https://fomus.jp/FOMUS.png",
+        "telephone": "info@fomus.jp",
+        "email": "info@fomus.jp",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "JP",
+            "addressRegion": "日本"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.6762,
+            "longitude": 139.6503
+        },
+        "areaServed": [
+            "日本全国",
+            "東京都",
+            "大阪府",
+            "京都府",
+            "神奈川県",
+            "埼玉県",
+            "千葉県",
+            "愛知県",
+            "福岡県",
+            "北海道",
+            "沖縄県"
+        ],
+        "serviceType": [
+            "伝統工芸品製造",
+            "木製品デザイン",
+            "アート作品制作",
+            "ジュエリーデザイン",
+            "文化コンサルティング"
+        ],
+        "keywords": [
+            "枡",
+            "伝統工芸",
+            "日本文化",
+            "木製品",
+            "ハンドメイド",
+            "ジュエリー",
+            "アート",
+            "プレゼント",
+            "ギフト",
+            "和雑貨"
+        ],
+        "priceRange": "￥￥",
+        "paymentAccepted": ["現金", "クレジットカード", "電子決済"],
+        "currenciesAccepted": "JPY",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "FOMUS製品カタログ",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "枡製品"
+                },
+                {
+                    "@type": "OfferCatalog", 
+                    "name": "ジュエリー"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "アート作品"
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- ヘッダー -->
@@ -67,8 +257,8 @@
                     </div>
                 </div>
                 <div class="hero-right">
-                    <h1 class="hero-title">Play with tradition.<br>Connect with the world.</h1>
-                    <p class="hero-tagline">伝統であそび、世界をつなぐ。</p>
+                    <h1 class="hero-title">日本の伝統工芸「枡」で人と人をつなぐFOMUS</h1>
+                    <p class="hero-tagline">伝統であそび、世界をつなぐ。Play with tradition, Connect with the world.</p>
                     <p class="hero-subtitle">ひとつの「枡」から、世界中の人と物語をつくる。FOMUSは、文化と遊び心をつなぐ、世界にひらかれた工芸ブランドです。</p>
                     <div class="hero-switcher">
                         <p class="hero-switcher-text">This is the Japanese corporate site of FOMUS.</p>
@@ -82,7 +272,7 @@
         <section class="concept" id="concept">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title" data-ja="FOMUSとは" data-en="About FOMUS">FOMUSとは</h2>
+                    <h2 class="section-title" data-ja="FOMUSとは" data-en="About FOMUS">伝統工芸「枡」ブランド FOMUSとは</h2>
                 </div>
                 <div class="concept-content">
                     <div class="concept-text">
@@ -91,7 +281,7 @@
                         <p data-ja="飾る、贈る、遊ぶ、繋がる。一つの枡から始まる、無限の物語を世界へ。" data-en="Decorate, gift, play, connect. Infinite stories starting from one masu to the world.">飾る、贈る、遊ぶ、繋がる。一つの枡から始まる、無限の物語を世界へ。</p>
                     </div>
                     <div class="concept-image">
-                        <img src="img/concept.jpg" alt="枡とアートのコンセプト">
+                        <img src="img/concept.jpg" alt="枡とアートのコンセプト" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -101,14 +291,14 @@
         <section class="projects" id="projects">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title" data-ja="FOMUSのプロジェクト" data-en="FOMUS Projects">FOMUSのプロジェクト</h2>
+                    <h2 class="section-title" data-ja="FOMUSのプロジェクト" data-en="FOMUS Projects">日本の伝統工芸を現代にFOMUSのプロジェクト</h2>
                     <p class="section-subtitle" data-ja="あそびから生まれる、つながりの物語" data-en="Stories of connection born from play">あそびから生まれる、つながりの物語</p>
                 </div>
                 <div class="projects-grid">
                     <!-- Project 1: FOMUSの枡 -->
                     <a href="https://masu.fomus.jp" target="_blank" class="project-card reveal-project" data-project="1">
                         <div class="project-image">
-                            <img src="img/project1.jpg" alt="FOMUSの枡">
+                            <img src="img/project1.jpg" alt="FOMUSの枡" loading="lazy" decoding="async">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" data-ja="FOMUSの枡" data-en="FOMUS Masu">FOMUSの枡</h3>
@@ -119,7 +309,7 @@
                     <!-- Project 2: 枡フォト写真集 -->
                     <a href="https://masuphoto.theshop.jp/" target="_blank" class="project-card reveal-project" data-project="2">
                         <div class="project-image">
-                            <img src="img/project2.jpg" alt="枡フォト写真集">
+                            <img src="img/project2.jpg" alt="枡フォト写真集" loading="lazy" decoding="async">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" data-ja="枡フォト写真集" data-en="Masu Photo Collection">枡フォト写真集</h3>
@@ -130,7 +320,7 @@
                     <!-- Project 3: FOMUS Parure -->
                     <a href="https://parure.fomus.jp" target="_blank" class="project-card reveal-project" data-project="3">
                         <div class="project-image">
-                            <img src="img/project3.jpg" alt="FOMUS Parure">
+                            <img src="img/project3.jpg" alt="FOMUS Parure" loading="lazy" decoding="async">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" data-ja="FOMUS PARURE" data-en="FOMUS PARURE">FOMUS PARURE</h3>
@@ -141,7 +331,7 @@
                     <!-- Project 4: KUKU -->
                     <div class="project-card reveal-project" data-project="4">
                         <div class="project-image">
-                            <img src="img/project4.jpg" alt="KUKU">
+                            <img src="img/project4.jpg" alt="KUKU" loading="lazy" decoding="async">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" data-ja="KUKU" data-en="KUKU">KUKU</h3>
@@ -152,7 +342,7 @@
                     <!-- Project 5: SILVA -->
                     <a href="http://silva.fomus.jp/" target="_blank" class="project-card reveal-project" data-project="5">
                         <div class="project-image">
-                            <img src="img/project5.jpg" alt="SILVA">
+                            <img src="img/project5.jpg" alt="SILVA" loading="lazy" decoding="async">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title" data-ja="SILVA" data-en="SILVA">SILVA</h3>
@@ -258,7 +448,7 @@
                 </div>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="img/profile.jpg" alt="代表者MaSU">
+                        <img src="img/profile.jpg" alt="代表者MaSU" loading="lazy" decoding="async">
                     </div>
                     <div class="about-text">
                         <h3>まっすー / MaSU</h3>
