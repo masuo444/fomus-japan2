@@ -6,37 +6,64 @@
     <!-- トップページ -->
     <url>
         <loc>https://fomus.jp/</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-01-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         
         <!-- 代替言語版 -->
         <xhtml:link rel="alternate" hreflang="ja" href="https://fomus.jp/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://fomus.jp/?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://fomus.jp/en"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://fomus.jp/"/>
         
         <!-- 重要な画像 -->
         <image:image>
             <image:loc>https://fomus.jp/FOMUS.png</image:loc>
-            <image:title>FOMUS - 日本の伝統工芸「枡」ブランド</image:title>
-            <image:caption>FOMUSは日本の伝統工芸「枡」を現代に蘇らせたブランドです</image:caption>
+            <image:title>FOMUS - 日本の伝統工芸「枡」ブランド | 枡の通販・オーダーメイド</image:title>
+            <image:caption>FOMUSは日本の伝統工芸「枡」を現代に蘇らせ、世界14ヶ国に展開する文化IPブランドです。国産ヒノキを使用した最高品質の枡を提供。</image:caption>
         </image:image>
         
         <image:image>
             <image:loc>https://fomus.jp/logo.png</image:loc>
-            <image:title>FOMUSロゴ</image:title>
+            <image:title>FOMUS（フォーマス）ロゴ - 日本の伝統工芸枡ブランド</image:title>
+            <image:caption>伝統であそび、世界をつなぐFOMUSのブランドロゴ</image:caption>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://fomus.jp/img/concept.jpg</image:loc>
+            <image:title>FOMUSのコンセプト - 枡を通じて人と人をつなぐ</image:title>
+            <image:caption>枡は単なる器ではなく、想いを包み、人と人、文化と世界をつなぐコミュニケーションツール</image:caption>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://fomus.jp/コラボ枡.png</image:loc>
+            <image:title>コラボ枡・コーティング枡 - カスタマイズ・法人向け</image:title>
+            <image:caption>企業ロゴや特殊コーティングでカスタマイズ可能な枡。食洗機対応も可能。</image:caption>
         </image:image>
     </url>
     
     <!-- 軌跡ページ -->
     <url>
         <loc>https://fomus.jp/trajectory.html</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         
         <!-- 代替言語版 -->
         <xhtml:link rel="alternate" hreflang="ja" href="https://fomus.jp/trajectory.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://fomus.jp/trajectory.html?lang=en"/>
+        
+        <!-- 重要な画像 -->
+        <image:image>
+            <image:loc>https://fomus.jp/trajectory　写真/FOMUS立ち上げ.JPG</image:loc>
+            <image:title>FOMUSブランド立ち上げ - 2021年2月</image:title>
+            <image:caption>日本の伝統工芸「枡」をテーマにしたプロジェクトの始動</image:caption>
+        </image:image>
+        
+        <image:image>
+            <image:loc>https://fomus.jp/trajectory　写真/佐木島アートギャラリー完成.png</image:loc>
+            <image:title>佐木島アートギャラリー完成 - 2025年3月</image:title>
+            <image:caption>巨大な「枡ウォール」が壁一面を覆うアートギャラリーが完成</image:caption>
+        </image:image>
     </url>
     
     <!-- プロジェクト個別ページ（外部リンク情報） -->

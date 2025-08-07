@@ -1,28 +1,58 @@
+# FOMUSサイト robots.txt
+# 最終更新: 2025-01-07
+
+# デフォルト設定（すべてのクローラー）
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
 # サイトマップの場所を指定
 Sitemap: https://fomus.jp/sitemap.xml
 
 # 重要なページの優先クロール
-Crawl-delay: 1
-
-# 検索エンジンに優先的にクロールしてもらいたいページ
 Allow: /index.html
 Allow: /trajectory.html
+Allow: /$
 
-# 不要なファイルのクロールを制限
-Disallow: /trajectory　写真/
-Disallow: /*.JPG$
-Disallow: /*.PNG$
-Disallow: /*.jpg$
-Disallow: /*.png$
-Disallow: /img/*.jpg
-Disallow: /img/*.png
+# 画像ファイルは選択的に許可（SEO重要画像のみ）
+Allow: /FOMUS.png
+Allow: /logo.png
+Allow: /img/concept.jpg
+Allow: /img/profile.jpg
+Allow: /コラボ枡.png
+Allow: /AIサポート.jpg
+
+# プロジェクト画像も許可
+Allow: /img/project*.jpg
+
+# 軌跡写真の重要な画像のみ許可
+Allow: /trajectory　写真/FOMUS立ち上げ.JPG
+Allow: /trajectory　写真/佐木島アートギャラリー完成.png
+Allow: /trajectory　写真/法人化.JPG
+
+# その他の画像ファイルは制限（帯域幅節約のため）
+Disallow: /trajectory　写真/*.JPG
+Disallow: /trajectory　写真/*.PNG
+Disallow: /trajectory　写真/*.jpg
+Disallow: /trajectory　写真/*.png
+
+# スクリプトとスタイルファイルのクロール
+Allow: /styles.css
+Allow: /script.js
+Allow: /trajectory.js
 
 # Google Search Console用
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
+
+# Googlebot画像検索用
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.webp
 Crawl-delay: 1
 
 # Bing用
@@ -30,7 +60,42 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Yahoo用
+# Yahoo用（日本市場で重要）
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
+
+# Yandex用
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Baidu用（中国市場向け）
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Facebook/Meta用
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter用
+User-agent: Twitterbot
+Allow: /
+
+# LINE用（日本市場で重要）
+User-agent: Linespider
+Allow: /
+
+# 悪質なボットをブロック
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
